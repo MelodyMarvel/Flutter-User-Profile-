@@ -37,24 +37,22 @@ class DetailsScreen extends StatelessWidget {
     ),
          title: Text('$username',
         style: TextStyle(color: Colors.white, fontSize: 20),
-      
-
-),
-         backgroundColor: Color.fromARGB(225, 0, 0, 0),
+      ),
+         backgroundColor: Color.fromARGB(235, 38, 43, 37),
        ), 
         body: Container(
           decoration: BoxDecoration(
-          color: const Color.fromARGB(234, 0, 0, 0), 
+          color: Color.fromARGB(255,12, 19, 23), 
         ),
           child: Column(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0,16,0,0),
+              padding: const EdgeInsets.fromLTRB(0,26,0,0),
               child: Center(
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(thumbnailUrl),
-                  radius: 100,    
+                  radius: 78,    
                 ),
               ),
             ),
@@ -65,118 +63,153 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    leading: Image.asset(
-                      'assets/images/user5.png',
-                      width: 24,
-                      height: 24,
+                    leading: Container(
+                      width: 35, 
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/user5.png',
+                            width: 24,
+                            height: 24,
+                          ),
+                        ],
+                      ),
                     ),
                     title: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Name",
-                          style: TextStyle(color: Colors.grey, fontSize: 11),
+                          style: TextStyle(color: Colors.grey, fontSize: 14),
                         ),
-                        SizedBox(height: 4), 
                         Text(
                           "$name",
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ],
                     ),
                   ),
+                   SizedBox(height: 12), 
+
                   ListTile(
-                    leading: Image.asset(
-                      'assets/images/email6.jpg',
-                      width: 24,
-                      height: 24,
+                    leading: Container(
+                      width: 35,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/email6.jpg',
+                            width: 24,
+                            height: 24,
+                          ),
+                        ],
+                      ),
                     ),
                     title: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Email",
-                          style: TextStyle(color: Colors.grey, fontSize: 11),
+                          style: TextStyle(color: Colors.grey, fontSize: 14),
                         ),
-                        SizedBox(height: 4), 
                         Text(
                           "$email",
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ],
                     ),
                   ),
               
+                 SizedBox(height: 12), 
                 ListTile(
-                  leading: Image.asset(
-                    'assets/images/phone3.png',
-                    width: 20,
-                    height: 20,
+                  leading: Container(
+                    width: 35,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/phone3.png',
+                          width: 20,
+                          height: 20,
+                        ),
+                      ],
+                    ),
                   ),
                   title: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Phone",
-                        style: TextStyle(color: Colors.grey, fontSize: 11),
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
                       ),
-                      SizedBox(height: 4), 
                       Text(
                         "$phone",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ],
                   ),
                 ),
+                 SizedBox(height: 12), 
+
                  ListTile(
-                  leading: Image.asset(
-                    'assets/images/web4.jpg',
-                    width: 25,
-                    height: 25,
+                  leading: Container(
+                    width: 35,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/web4.jpg',
+                          width: 25,
+                          height: 25,
+                        ),
+                      ],
+                    ),
                   ),
                   title: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Website",
-                        style: TextStyle(color: Colors.grey, fontSize: 11),
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
                       ),
-                      SizedBox(height: 4), 
                       Text(
                         "$website",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ],
                   ),
                 ),
+                  SizedBox(height: 12), 
                  ListTile(
-                  leading: Image.asset(
-                    'assets/images/address2.png',
-                    width: 24,
-                    height: 24,
+                  leading: Container(
+                    width: 35,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/address2.png',
+                          width: 24,
+                          height: 24,
+                        ),
+                      ],
+                    ),
                   ),
                   title: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Address",
-                        style: TextStyle(color: Colors.grey, fontSize: 11),
+                        style: TextStyle(color: Colors.grey, fontSize: 14),
                       ),
-                      SizedBox(height: 4),
                       Text(
                         "$address",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ],
                   ),
                 ),
-                ],
+               ],
               ),
             ),
-            
           ],
         ),
-        ),  
-        );
+      ),  
+    );
   }
 }

@@ -48,63 +48,98 @@ class _HomeScreenState extends State<HomeScreen> {
     for (int i = 0; i < max(users.length, photos.length); i++) {
       combinedData.add({
         'name': i < users.length ? users[i]['name'] ?? '' : '',
+        'username': i < users.length ? users[i]['username'] ?? '' : '',
         'thumbnailUrl': i < photos.length ? photos[i]['thumbnailUrl'] ?? '' : '',
 
       });
     }
    return Scaffold(
       appBar: AppBar(
-         title: const Text('User Profile'),
+         title: Center(
+           child: const Text('User Profile',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+                   ),
+         ),
+          backgroundColor: Color.fromARGB(235, 38, 43, 37),
        ), 
-        body: ListView.builder(
-        itemCount: combinedData.length,
-        itemBuilder: (context, index) {
-          final userData = combinedData[index];
-          final name = userData['name'] ?? '';
-          final thumbnailUrl = userData['thumbnailUrl'];
-      
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          '/detail',
-          arguments: {
-            'thumbnailUrl': thumbnailUrl,
-            'name': name,
-            'username': users[index]['username'],
-            'email': users[index]['email'],
-              'address': {
-              'street': users[index]['address']['street'],
-              'suite': users[index]['address']['suite'],
-              'city': users[index]['address']['city'],
-              'zipcode': users[index]['address']['zipcode'],
-              'lat': users[index]['address']['geo']['lat'],
-              'lng': users[index]['address']['geo']['lng'],
+        body: Container(
+           decoration: BoxDecoration(
+            color: Color.fromARGB(255,12, 19, 23), 
+            
+          ), 
+          child: ListView.builder(
+          
+          itemCount: combinedData.length,
+          itemBuilder: (context, index) {
+            final userData = combinedData[index];
+            final name = userData['name'] ?? '';
+            final username = userData['username'] ?? '';
+            final thumbnailUrl = userData['thumbnailUrl'];
+                
+              return GestureDetector(
+                onTap: () {
+          Navigator.pushNamed(
+            context,
+            '/detail',
+            arguments: {
+              'thumbnailUrl': thumbnailUrl,
+              'name': name,
+              'username': users[index]['username'],
+              'email': users[index]['email'],
+                'address': {
+                'street': users[index]['address']['street'],
+                'suite': users[index]['address']['suite'],
+                'city': users[index]['address']['city'],
+                'zipcode': users[index]['address']['zipcode'],
+                'lat': users[index]['address']['geo']['lat'],
+                'lng': users[index]['address']['geo']['lng'],
+              },
+              'phone': users[index]['phone'],
+              'website': users[index]['website'],
             },
-            'phone': users[index]['phone'],
-            'website': users[index]['website'],
-          },
+          );
+                },
+        child:Column(
+          children: [
+              ListTile(
+              
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(thumbnailUrl),
+                ),
+                title: 
+                    Text(
+                      name,
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                    ),
+                          
+                subtitle: 
+                    Text(
+                      username,
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                    ),
+              
+                  trailing: Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: Colors.grey,
+                  size: 10.0,
+                ),
+                ),
+            
+            
+                Divider(
+                  color: Color.fromARGB(38, 158, 158, 158),
+                  thickness: 1.0,
+                   indent: 70,
+                  endIndent: 28,
+                  // height: 1,
+                ),
+          ]
+    ),
+
         );
       },
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: NetworkImage(thumbnailUrl),
-        ),
-        title: Row(
-          children: [
-            Expanded(child: Text(name)),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.black,
-              size: 18.0,
-            ),
-          ],
-        ),
-      ),
-    );
-
-        },
-      ),
+    ),
+  ),
  ); 
 }
 }
